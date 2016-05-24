@@ -5,6 +5,9 @@ public class StringCalculator {
 	private static final String EMPTY_STRING = "";
 	private static final String NEW_LINE_STRING = System.getProperty("line.separator");
 	private static final String STRING_SEPARATOR = ",";
+	
+	private static final String STARTING_DELIMITERS = "//";
+	private static final String ENDING_DELIMITERS = NEW_LINE_STRING;
 
 	// Sum function from String
 	public int add(String numbers) {
@@ -13,8 +16,24 @@ public class StringCalculator {
 			return 0;
 		}
 		
+		String delimitor = "("+STRING_SEPARATOR+"|"+NEW_LINE_STRING+")";
+		// Delimitor detection
+		if (numbers.startsWith(STARTING_DELIMITERS)) {
+			// Save delimitor
+			delimitor = numbers.substring(
+					STARTING_DELIMITERS.length(),
+					numbers.indexOf(ENDING_DELIMITERS)
+			);
+			// Update string of numbers
+			numbers = numbers.substring(
+					numbers.indexOf(
+							ENDING_DELIMITERS)+
+					ENDING_DELIMITERS.length()
+			);
+		}
+		
 		// Parse string
-		String[] nums = numbers.split("("+STRING_SEPARATOR+"|"+NEW_LINE_STRING+")");
+		String[] nums = numbers.split(delimitor);
 		int total = 0;
 		// Loop on length numbers given
 		for (String num : nums) {
