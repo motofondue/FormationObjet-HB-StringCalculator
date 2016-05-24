@@ -86,10 +86,7 @@ public class StringCalculatorTest {
     @Test(expected=NegNumberException.class)
     public void shouldThrowExceptionOnNegNumber(){
         // When
-        int[] results = new int[]{
-                stringCalculator.add(NEG_NUMBER),
-                stringCalculator.add(NEG_NUMBER_DELIMITERS)
-        };
-        // Then
+        stringCalculator.add(NEG_NUMBER);
+        stringCalculator.add(NEG_NUMBER_DELIMITERS);
     }
 }
