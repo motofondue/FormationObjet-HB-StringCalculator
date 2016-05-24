@@ -32,8 +32,11 @@ public class StringCalculator {
 		
 		int total = 0;
 		// Loop on length numbers given
-		for (String num : nums) {
-			total += Integer.valueOf(num);
+		for (String numAsString : nums) {
+            int num = Integer.valueOf(numAsString);
+            if (num < 0)
+                throw new NegNumberException();
+			total += Integer.valueOf(numAsString);
 		}
 		
 		// Return sum
