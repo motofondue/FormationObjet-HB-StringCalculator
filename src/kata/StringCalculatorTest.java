@@ -9,6 +9,7 @@ public class StringCalculatorTest {
 	private StringCalculator stringCalculator;
     private static final String EMPTY_STRING = "";
 	private static final String NEW_LINE_STRING = System.getProperty("line.separator");
+	private static final int MAX_NUMBER = 1000;
     
 	private static final String SINGLE_NUMBER_2 = "2";
     private static final String TWO_NUMBER_GIVEN = "1,2";
@@ -28,6 +29,7 @@ public class StringCalculatorTest {
 
     private static final String NEG_NUMBER = "1,-2";
     private static final String NEG_NUMBER_DELIMITERS = "//:"+NEW_LINE_STRING+"1:-2";
+    private static final String ONE_NUMBER_AND_TO_BIG_NUMBER = "2,"+(MAX_NUMBER+1);
 
     @Before
 	public void setup(){
@@ -88,5 +90,13 @@ public class StringCalculatorTest {
         // When
         stringCalculator.add(NEG_NUMBER);
         stringCalculator.add(NEG_NUMBER_DELIMITERS);
+    }
+
+    @Test
+    public void shouldBeTwoWhenTwoAndBiggestNumberGiven(){
+        // When
+    	int sum = stringCalculator.add(ONE_NUMBER_AND_TO_BIG_NUMBER);
+        // Then
+        assertEquals(2, sum);
     }
 }
