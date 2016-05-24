@@ -25,7 +25,7 @@ public class StringCalculatorTest {
 	private static final String STARTING_DELIMITERS = "//";
 	private static final String ENDING_DELIMITERS = NEW_LINE_STRING;
 	private static final String MULTIPLE_NUMBER_DELIMITER_BANG = STARTING_DELIMITERS + "!" + ENDING_DELIMITERS + "1!2!3!4!5!6";
-	private static final String MULTIPLE_NUMBER_DELIMITER_SEMICOLON = STARTING_DELIMITERS + ";" + ENDING_DELIMITERS + "1;2;3;4;5;6";
+	private static final String MULTIPLE_NUMBER_DELIMITER_SEMICOLON = STARTING_DELIMITERS + "#:#" + ENDING_DELIMITERS + "1#:#2#:#3#:#4#:#5#:#6";
 
     private static final String NEG_NUMBER = "1,-2";
     private static final String NEG_NUMBER_DELIMITERS = "//:"+NEW_LINE_STRING+"1:-2";
