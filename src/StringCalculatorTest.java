@@ -13,4 +13,14 @@ public class StringCalculatorTest {
 		// Then
 		assertEquals(0, sum);
 	}
+	
+	@Test
+	public void shouldBeTwoWhenTwoGiven() {
+		// Given
+		StringCalculator sc = new StringCalculator();
+		// When
+		int sum = sc.add("2");
+		// Then
+		assertEquals(2, sum);
+	}
 }
