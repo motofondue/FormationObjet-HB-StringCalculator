@@ -6,3 +6,5 @@ bin/
 .metadata
 .idea/
 StringCalculator.iml
+*.iml
+
