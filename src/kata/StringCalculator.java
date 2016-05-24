@@ -11,6 +11,8 @@ public class StringCalculator {
 
 	// Sum function from String
 	public int add(String numbers) {
+		String numbersToProcess = numbers;
+
 		// Check empty string
 		if (numbers.equals(EMPTY_STRING)) {
 			return 0;
@@ -25,7 +27,7 @@ public class StringCalculator {
 					numbers.indexOf(ENDING_DELIMITERS)
 			);
 			// Update string of numbers
-			numbers = numbers.substring(
+			numbersToProcess = numbers.substring(
 					numbers.indexOf(
 							ENDING_DELIMITERS)+
 					ENDING_DELIMITERS.length()
@@ -33,7 +35,7 @@ public class StringCalculator {
 		}
 		
 		// Parse string
-		String[] nums = numbers.split(delimitor);
+		String[] nums = numbersToProcess.split(delimitor);
 		int total = 0;
 		// Loop on length numbers given
 		for (String num : nums) {
