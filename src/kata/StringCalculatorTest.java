@@ -1,3 +1,5 @@
+package kata;
+
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -18,6 +20,11 @@ public class StringCalculatorTest {
     		"11"+NEW_LINE_STRING+
     		"1"+NEW_LINE_STRING+
     		"2";
+
+	private static final String STARTING_DELIMITERS = "//";
+	private static final String ENDING_DELIMITERS = NEW_LINE_STRING;
+	private static final String MULTIPLE_NUMBER_DELIMITER_BANG = STARTING_DELIMITERS + "!" + ENDING_DELIMITERS + "1!2!3!4!5!6";
+	private static final String MULTIPLE_NUMBER_DELIMITER_SEMICOLON = STARTING_DELIMITERS + ";" + ENDING_DELIMITERS + "1;2;3;4;5;6";
 
     @Before
 	public void setup(){
@@ -59,5 +66,17 @@ public class StringCalculatorTest {
 		assertEquals(21, sum1);
 		assertEquals(0, sum2);
 		assertEquals(23, sum3);
+	}
+
+	@Test
+	public void shouldBeSumWhenMultipleNumberGivenWithDelimiters() {
+		// When
+		int[] results = new int[]{
+				stringCalculator.add(MULTIPLE_NUMBER_DELIMITER_BANG),
+				stringCalculator.add(MULTIPLE_NUMBER_DELIMITER_SEMICOLON)
+		};
+		// Then
+		int[] expectedResults = new int[]{21, 21};
+		assertArrayEquals(expectedResults, results);
 	}
 }
